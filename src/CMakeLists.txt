@@ -86,11 +86,6 @@ set_target_properties(sirius PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 if(USE_ROCM)
   set_source_files_properties(${_CUSOURCES} PROPERTIES LANGUAGE HIP)
-  set_target_properties(sirius PROPERTIES HIP_ARCHITECTURES ${CMAKE_HIP_ARCHITECTURES})
-endif()
-
-if(USE_CUDA)
-  set_source_files_properties(sirius PROPERTIES CMAKE_CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
 endif()
 
 target_link_libraries(sirius PUBLIC SpFFT::spfft
